@@ -20,16 +20,16 @@ StyledWindow {
     readonly property alias interactionWrapper: interactions
 
     readonly property HyprlandMonitor monitor: Hypr.monitorFor(screen)
-    readonly property bool hasSpecialWorkspace: (monitor?.lastIpcObject.specialWorkspace?.name.length ?? 0) > 0
+    readonly property bool hasSpecialWorkspace: (monitor?.lastIpcObject?.specialWorkspace?.name.length ?? 0) > 0
     readonly property bool hasFullscreen: {
         if (hasSpecialWorkspace) {
-            const specialName = monitor?.lastIpcObject.specialWorkspace?.name;
+            const specialName = monitor?.lastIpcObject?.specialWorkspace?.name;
             if (!specialName)
                 return false;
             const specialWs = Hypr.workspaces.values.find(ws => ws.name === specialName);
-            return specialWs?.toplevels.values.some(t => t.lastIpcObject.fullscreen > 1) ?? false;
+            return specialWs?.toplevels.values.some(t => t.lastIpcObject?.fullscreen > 1) ?? false;
         }
-        return monitor?.activeWorkspace?.toplevels.values.some(t => t.lastIpcObject.fullscreen > 1) ?? false;
+        return monitor?.activeWorkspace?.toplevels.values.some(t => t.lastIpcObject?.fullscreen > 1) ?? false;
     }
 
     property real fsTransitionProg: hasFullscreen ? 1 : 0
@@ -45,7 +45,7 @@ StyledWindow {
         if (focusGrab.active || panels.popouts.isDetached)
             return 0;
 
-        if (monitor?.lastIpcObject.specialWorkspace?.name || monitor?.activeWorkspace.lastIpcObject.windows > 0)
+        if (monitor?.lastIpcObject?.specialWorkspace?.name || monitor?.activeWorkspace?.lastIpcObject?.windows > 0)
             return 0;
 
         const thresholds = [];
