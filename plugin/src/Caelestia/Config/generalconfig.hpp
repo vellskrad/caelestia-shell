@@ -15,7 +15,7 @@ class GeneralApps : public ConfigObject {
     QML_ANONYMOUS
 
     CONFIG_GLOBAL_PROPERTY(QStringList, terminal, { u"foot"_s })
-    CONFIG_GLOBAL_PROPERTY(QStringList, audio, { u"pavucontrol"_s })
+    CONFIG_GLOBAL_PROPERTY(QStringList, audio, { u"pwvucontrol"_s })
     CONFIG_GLOBAL_PROPERTY(QStringList, playback, { u"mpv"_s })
     CONFIG_GLOBAL_PROPERTY(QStringList, explorer, { u"thunar"_s })
 
@@ -30,6 +30,7 @@ class GeneralIdle : public ConfigObject {
 
     CONFIG_GLOBAL_PROPERTY(bool, lockBeforeSleep, true)
     CONFIG_GLOBAL_PROPERTY(bool, inhibitWhenAudio, true)
+    CONFIG_GLOBAL_PROPERTY(bool, inhibitWhenCharging, false)
     CONFIG_GLOBAL_PROPERTY(QVariantList, timeouts,
         {
             vmap({

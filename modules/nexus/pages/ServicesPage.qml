@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import Quickshell
 import Caelestia.Config
 import Caelestia.Services
-import qs.components
 import qs.components.controls
 import qs.services
 import qs.modules.nexus.common
@@ -88,8 +87,8 @@ PageBase {
             first: true
             last: true
             icon: "notifications"
-            label: qsTr("Notifications")
-            status: qsTr("Notifications, toasts, timeouts")
+            text: qsTr("Notifications")
+            subtext: qsTr("Notifications, toasts, timeouts")
             onClicked: root.nState.openSubPage(1)
         }
 
